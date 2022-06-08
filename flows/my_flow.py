@@ -1,6 +1,7 @@
 # flows/my_flow.py
 
 from prefect import task, Flow
+from prefect.run_configs import DockerRun
 from prefect.storage import GitHub
 
 @task
@@ -20,3 +21,4 @@ flow.storage = GitHub(
     path="flows/my_flow.py",                    # location of flow file in repo
     #access_token_secret="GITHUB_ACCESS_TOKEN"   # name of personal access token secret
 )
+flow.run_config = DockerRun(image="prefecthq/prefect:latest")
