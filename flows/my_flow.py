@@ -12,7 +12,7 @@ def get_data():
 def print_data(data):
     print(data)
 
-with Flow("example") as flow:
+with Flow("example-docker") as flow:
     data = get_data()
     print_data(data)
 
